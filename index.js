@@ -5,6 +5,8 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 
+const team = [];
+
 initAndCreateManager();
 
 function initAndCreateManager() {
@@ -31,6 +33,16 @@ function initAndCreateManager() {
         name: "managerOffice",
       },
     ])
+    .then((responses) => {
+      const manager = new Manager(
+        responses.managerName,
+        responses.managerID,
+        responses.managerEmail,
+        responses.managerOffice
+      );
+      team.push(manager);
+      console.log(team);
+    })
     .then(mainMenu);
 }
 
@@ -56,7 +68,7 @@ function mainMenu() {
         case "Input data for an intern":
           createIntern();
           break;
-        case "No, I don't want to input any more data":
+        case "I'm done inputting employee data":
           console.log("okay, no more data");
           break;
       }
@@ -87,6 +99,16 @@ function createEngineer() {
         name: "engineerGithub",
       },
     ])
+    .then((responses) => {
+      const engineer = new Engineer(
+        responses.engineerName,
+        responses.engineerID,
+        responses.engineerEmail,
+        responses.engineerGithub
+      );
+      team.push(engineer);
+      console.log(team);
+    })
     .then(mainMenu);
 }
 
@@ -114,5 +136,15 @@ function createIntern() {
         name: "internSchool",
       },
     ])
+    .then((responses) => {
+      const intern = new Intern(
+        responses.internName,
+        responses.internID,
+        responses.internEmail,
+        responses.internSchool
+      );
+      team.push(intern);
+      console.log(team);
+    })
     .then(mainMenu);
 }
