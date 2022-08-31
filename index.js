@@ -1,9 +1,11 @@
 const inquirer = require("inquirer");
+const fs = require("fs");
 
-const Employee = require("./lib/Employee");
+const generatePage = require("./src/generatePage");
+
+const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const Manager = require("./lib/Manager");
 
 const team = [];
 
@@ -41,7 +43,6 @@ function initAndCreateManager() {
         responses.managerOffice
       );
       team.push(manager);
-      console.log(team);
     })
     .then(mainMenu);
 }
@@ -55,7 +56,7 @@ function mainMenu() {
         choices: [
           "Input data for an engineer",
           "Input data for an intern",
-          "No, I don't want to input any more data",
+          "I'm done inputting employee data",
         ],
         name: "inputAnother",
       },
@@ -69,7 +70,10 @@ function mainMenu() {
           createIntern();
           break;
         case "I'm done inputting employee data":
-          console.log("okay, no more data");
+          console.log("Your team:");
+          console.log(team);
+          generatePage(team);
+          // message about page being created
           break;
       }
     });
@@ -107,7 +111,6 @@ function createEngineer() {
         responses.engineerGithub
       );
       team.push(engineer);
-      console.log(team);
     })
     .then(mainMenu);
 }
@@ -144,7 +147,6 @@ function createIntern() {
         responses.internSchool
       );
       team.push(intern);
-      console.log(team);
     })
     .then(mainMenu);
 }
