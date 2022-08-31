@@ -5,6 +5,8 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 
+initAndCreateManager();
+
 function initAndCreateManager() {
   inquirer
     .prompt([
@@ -28,6 +30,13 @@ function initAndCreateManager() {
         message: "Enter manager's office number:",
         name: "managerOffice",
       },
+    ])
+    .then(mainMenu);
+}
+
+function mainMenu() {
+  inquirer
+    .prompt([
       {
         type: "list",
         message: "Input data for another employee?",
@@ -52,21 +61,7 @@ function initAndCreateManager() {
           break;
       }
     });
-  // .then(createEngineer);
-
-  // TODO- put this stuff inside switch statement? or where?
-  // .then((managerResponses) => {
-  //   const createdManager = new Manager(
-  //     managerResponses.managerName,
-  //     managerResponses.managerID,
-  //     managerResponses.managerEmail,
-  //     managerResponses.managerOffice
-  //   );
-  //   console.log(createdManager);
-  // });
 }
-
-initAndCreateManager();
 
 function createEngineer() {
   inquirer
@@ -91,30 +86,8 @@ function createEngineer() {
         message: "Enter engineer's github username:",
         name: "engineerGithub",
       },
-      {
-        type: "list",
-        message: "Input data for another employee?",
-        choices: [
-          "Input data for an engineer",
-          "Input data for an intern",
-          "No, I don't want to input any more data",
-        ],
-        name: "inputAnother",
-      },
     ])
-    .then((responses) => {
-      switch (responses.inputAnother) {
-        case "Input data for an engineer":
-          createEngineer();
-          break;
-        case "Input data for an intern":
-          createIntern();
-          break;
-        case "No, I don't want to input any more data":
-          console.log("okay, no more data");
-          break;
-      }
-    });
+    .then(mainMenu);
 }
 
 function createIntern() {
@@ -140,28 +113,6 @@ function createIntern() {
         message: "Enter intern's school:",
         name: "internSchool",
       },
-      {
-        type: "list",
-        message: "Input data for another employee?",
-        choices: [
-          "Input data for an engineer",
-          "Input data for an intern",
-          "No, I don't want to input any more data",
-        ],
-        name: "inputAnother",
-      },
     ])
-    .then((responses) => {
-      switch (responses.inputAnother) {
-        case "Input data for an engineer":
-          createEngineer();
-          break;
-        case "Input data for an intern":
-          createIntern();
-          break;
-        case "No, I don't want to input any more data":
-          console.log("okay, no more data");
-          break;
-      }
-    });
+    .then(mainMenu);
 }
