@@ -42,19 +42,21 @@ function renderIntern(intern) {
 
 // (data) here will be the team array
 function generatePage(data) {
+  teamCards = [];
   for (let i = 0; i < data.length; i++) {
     switch (data[i].getRole()) {
       case "Manager":
-        renderManager(data[i]);
+        teamCards.push(renderManager(data[i]));
         break;
       case "Engineer":
-        renderEngineer(data[i]);
+        teamCards.push(renderEngineer(data[i]));
         break;
       case "Intern":
-        renderIntern(data[i]);
+        teamCards.push(renderIntern(data[i]));
         break;
     }
   }
+  return JSON.stringify(teamCards);
 }
 
 module.exports = generatePage;
