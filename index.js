@@ -8,6 +8,7 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 
 const team = [];
+// TODO: make email and github links clickable/working
 
 initAndCreateManager();
 
@@ -73,8 +74,6 @@ function mainMenu() {
           console.log("Your team:");
           console.log(team);
           generatePage(team);
-          // TODO: this currently writes a page with ONLY the rendered card divs - need to get other boilerplate HTML in place around them
-          // TODO: also currently writes stringified (array?) content with \n symbols instead of exactly as written
           fs.writeFile("./dist/index.html", generatePage(team), (err) => {
             if (err) {
               console.log(err);

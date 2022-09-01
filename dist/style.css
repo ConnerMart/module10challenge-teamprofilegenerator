@@ -1,0 +1,25 @@
+.card-container {
+  padding: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 800px;
+}
+
+.card-header:hover {
+  background-color: #0d6efd;
+  color: white;
+}
+
+ul {
+  list-style: none;
+}
+
+span {
+  font-weight: bolder;
+}
