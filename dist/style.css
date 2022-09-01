@@ -1,5 +1,10 @@
+nav h1 {
+  margin: 20px auto;
+  font-weight: bold;
+}
+
 .card-container {
-  padding: 200px;
+  padding: 40px 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;

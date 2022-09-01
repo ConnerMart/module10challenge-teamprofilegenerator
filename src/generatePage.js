@@ -17,13 +17,13 @@ function renderManager(manager) {
 function renderEngineer(engineer) {
   return `
   <div class="card border-primary mb-3" style="max-width: 18rem">
-  <div class="card-header">Manager</div>
+  <div class="card-header">Engineer</div>
   <div class="card-body text-primary">
     <h5 class="card-title">${engineer.name}</h5>
     <ul>
       <li><span>Employee ID:</span> ${engineer.id}</li>
       <li><span>Email:</span> ${engineer.email}</li>
-      <li><span>Office Number:</span> ${engineer.officeNumber}</li>
+      <li><span>GitHub:</span> ${engineer.github}</li>
     </ul>
   </div>
 </div>
@@ -33,13 +33,13 @@ function renderEngineer(engineer) {
 function renderIntern(intern) {
   return `
   <div class="card border-primary mb-3" style="max-width: 18rem">
-  <div class="card-header">Manager</div>
+  <div class="card-header">Intern</div>
   <div class="card-body text-primary">
     <h5 class="card-title">${intern.name}</h5>
     <ul>
       <li><span>Employee ID:</span> ${intern.id}</li>
       <li><span>Email:</span> ${intern.email}</li>
-      <li><span>Office Number:</span> ${intern.officeNumber}</li>
+      <li><span>School:</span> ${intern.school}</li>
     </ul>
   </div>
 </div>
@@ -58,6 +58,9 @@ topHTML = `
 <title>Document</title>
 </head>
 <body>
+<nav class="navbar navbar-dark bg-primary">
+<h1>Meet Our Team:</h1>
+</nav>
 <section class="card-container">`;
 bottomHTML = `
 </section>
