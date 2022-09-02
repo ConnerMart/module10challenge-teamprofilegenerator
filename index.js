@@ -8,7 +8,6 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 
 const team = [];
-// TODO: make email and github links clickable/working
 
 initAndCreateManager();
 
